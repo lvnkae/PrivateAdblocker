@@ -1,21 +1,25 @@
-Adblock Plus(ABP)�ɏ�悹���鎩�OAdblocker
-�E���荞�ݍL��
+Adblock Plus(ABP)に上乗せする自前Adblocker
+・割り込み広告
     yahoo(lucky-mail)
     wikipedia(donate)
-�Erecommend
+・recommend
     popin
     x-lift
-�E���OPR�L��/banner
-    ���s�V��
-    �����Q���_�C
-    ���tONLINE
-    �˂Ƃ��
+・自前PR記事/banner
+    京都新聞
+    日刊ゲンダイ
+    文春ONLINE
+    ねとらぼ
     4gamer
-�EABP��L���ɂ���ƃR���e���c������T�C�g
-    ���e��NEWS24(�֘A�L����������)
-    ��ʐV��(�L�����Ə�����)
-    �_�ސ�V��(�T�C�g���������ʂ�������)
+・専用フィルター
+    twitter
+・ABPを有効にするとコンテンツが壊れるサイト
+    日テレNEWS24(関連記事が消える)
+    埼玉新聞(記事ごと消える)
+    神奈川新聞(サイト内検索結果が消える)
+    this.kiji.is(ブロッカー検知/Chromeのみ？)
 
-�����p�Ȃ̂Ő������͌��J�͂��Ȃ�
-Chrome: "����J"�ɂēo�^�B�e�X�g���[�U�Ƃ��ăC���X�g�[���B
-Firefox: "�������g�ŁB"�ɂēo�^�B��������xpi����C���X�g�[���B
+自分用なので生成物は公開はしない
+Chrome: "非公開"にて登録。テストユーザとしてインストール。
+        → 非公開でもやたら審査が厳しいので、デバッグインストールにしておく。
+Firefox: "自分自身で。"にて登録。署名したxpiからインストール。

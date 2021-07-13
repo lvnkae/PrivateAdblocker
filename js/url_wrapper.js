@@ -45,7 +45,7 @@ class urlWrapper {
     }
 
     in_this_kiji_is() {
-        return this.domain.indexOf("this.kiji.is") >= 0;
+        return this.domain.indexOf("nordot.app") >= 0;
     }
     in_afp() {
         return this.domain.indexOf("www.afpbb.com") >= 0;
@@ -121,4 +121,51 @@ class urlWrapper {
     in_togetter() {
         return this.domain.indexOf("togetter.com") >= 0;
     }
+    in_twitter() {
+        return this.domain.indexOf("twitter.com") >= 0;
+    }
+    in_twitter_user_page() {
+        if (!this.in_twitter() || this.in_twitter_search()) {
+            return false;
+        }
+        if (this.subdir.length == 1) {
+            return !this.is_illegal_tw_username(this.subdir[0]);
+        } else if (this.subdir.length > 1) {
+            return !this.is_illegal_tw_username(this.subdir[0]) &&
+               (this.subdir[1] == '' || this.subdir[1] == 'media');
+        } else {
+            return false;
+        }
+    }
+    in_twitter_list() {
+        if (!this.in_twitter() || this.in_twitter_search()) {
+            return false;
+        }
+        return this.subdir.length == 3 &&
+               this.subdir[1] == 'lists' &&
+               this.subdir[2] != '';
+    }
+    in_twitter_tw_thread() {
+        if (!this.in_twitter() || this.in_twitter_search()) {
+            return false;
+        }
+        if (this.subdir.length != 3) {
+            return false;
+        }
+        if (this.is_illegal_tw_username(this.subdir[0])) {
+            return false;
+        }
+        return this.subdir[1] == 'status';
+    }
+    in_twitter_search() {
+        return this.in_twitter() &&
+               this.subdir.length > 0 &&
+               (this.subdir[0] == 'hashtag' ||
+                this.subdir[0].search((RegExp("^search\?", ""))) >= 0);
+    }
+
+    is_illegal_tw_username(username) {
+        return username == 'i' ||       // momentで使用
+               username == 'hashtag';   // hashtag検索で使用
+    }    
 }
