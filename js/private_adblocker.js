@@ -92,7 +92,7 @@ class PrivateAdblocker {
         if (loc.in_finance_yahoo()) {
             elem = $("div#contents");
         } else if (loc.in_this_kiji_is()) {
-            elem = $("div.page__contentsWrapper");
+            elem = $("div.main__content");
         } else if (loc.in_afp()) {
             elem = $("main.main");
         } else if (loc.in_fnn_news()) {

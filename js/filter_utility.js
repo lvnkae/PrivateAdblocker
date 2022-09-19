@@ -121,20 +121,21 @@ class FilterUtil {
     static filtering_this_kiji_is() {
         // blocker検知(Admiral)
         // → 個別に消す
-        const adspace = "div.page__contentsWrapper.page__contentsWrapper--ur";
-        // 記事とrecommendの間に出るg-ads
-        HTMLUtil.detach_element(adspace);
-        // 記事右に出るg-ads
-        HTMLUtil.detach_element("div.main__rightbar");
-        // 記事内g-ads
-        $("div.main__articleBody").each((inx, article)=> {
-            $(article).find("iframe").each((inx, e_ifm)=> {
-                const id = $(e_ifm).attr("id");
-                if (id != null && id.indexOf("-ads-") >= 0) {
-                    $(e_ifm).detach();
-                }
-            });
-        });
+        // index付きads
+        for(var inx = 1; inx < 10; inx++) {
+            // 記事トップに出る奴が_1
+            HTMLUtil.detach_element("div#ad_billboard_" + inx);
+            // 右側関連記事の上に出る奴が_1
+            HTMLUtil.detach_element("div#ad_rectangle_" + inx);
+            // tweetの下に出る奴が_1
+            HTMLUtil.detach_element("div#ad_halfpage_" + inx);
+            // 関連トピックの上に出る奴の左側が_1
+            HTMLUtil.detach_element("div#ad_in_paragraph_" + inx);
+        }
+        const pop = $("div._popIn_recommend_articles");
+        if (pop != null) {
+            console.log("pop");
+        }
     }
 
     static filtering_saitama_np_pr() {
