@@ -38,7 +38,8 @@
                    "https://nlab.itmedia.co.jp/*",
                    "https://www.4gamer.net/*",
                    "https://togetter.com/*",
-                   "https://twitter.com/*"],
+                   "https://twitter.com/*",
+                   "https://www.google.com/*"],
       "run_at": "document_start"
    } ],
    "description": "ABPを抜けてくる、recommendに紛れ込むなど小狡い広告対策アドオン",
@@ -49,5 +50,5 @@
    "name": "PrivateAdblocker",
    "permissions": [],
    "short_name": "PrivateAdblocker",
-   "version": "0.0.0.4"
+   "version": "0.0.0.5"
 }

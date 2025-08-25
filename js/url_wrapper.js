@@ -121,6 +121,9 @@ class urlWrapper {
     in_togetter() {
         return this.domain.indexOf("togetter.com") >= 0;
     }
+    in_google() {
+        return this.domain == 'www.google.com';
+    }    
     in_twitter() {
         return this.domain.indexOf("twitter.com") >= 0;
     }

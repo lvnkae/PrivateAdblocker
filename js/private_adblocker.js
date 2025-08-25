@@ -78,6 +78,8 @@ class PrivateAdblocker {
             FilterUtil.filtering_4gamer_pr();
         } else if (loc.in_twitter()) {
             FilterUtil.filtering_twitter_pr(loc.in_twitter_tw_thread());
+        } else if (loc.in_google()) {
+            FilterUtil.filtering_google_ai();
         }
     }
 
@@ -135,6 +137,8 @@ class PrivateAdblocker {
             elem = $("div.contents_main");
         } else if (loc.in_4gamer()) {
             elem = $("body");
+        } else if (loc.in_google()) {
+            elem = $("div#rcnt");
         } else if (loc.in_twitter()) {
             elem = $("div#react-root");
         } else {

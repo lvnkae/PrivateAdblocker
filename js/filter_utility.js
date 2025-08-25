@@ -329,4 +329,47 @@ class FilterUtil {
             }
         });
     }
+
+    static filtering_google_ai() {
+        let base_node = [];
+        base_node.push($("div#Odp5De"));
+        base_node.push($("div#search"));
+        base_node.push($("div#botstuff"));
+        base_node.forEach((n) => {
+            const node_ann = $(n).find("div#eKIzJc");
+            $(node_ann).each((inx, elem)=> {
+                const overview = $(elem).find("h1");
+                if (overview.length > 0) {
+                    if ($(overview).text() == "AI による概要") {
+                        $(overview).parent().detach();
+                    }
+                }
+            });
+            const node_ai = $(n).find("div.ULSxyf");
+            $(node_ai).each((inx, elem)=> {
+                const overview = $(elem).find("h2");
+                if (overview.length > 0) {
+                    if ($(overview).text() == "AI による概要") {
+                        $(elem).detach();
+                    }
+                }
+            });
+            const node_rel = $(n).find("div.cUnQKe");
+            $(node_rel).each((inx, elem)=> {
+                let b_detach = false;
+                $(elem).find("span").each((inx, span)=> {
+                    if (span.id != '' || span.className != '') {
+                        return true;
+                    }
+                    if ($(span).text() == "関連する質問") {
+                        b_detach = true;
+                        return false;
+                    }
+                });
+                if (b_detach) {
+                    $(elem).detach();
+                }
+            });
+        });
+    }
 }
